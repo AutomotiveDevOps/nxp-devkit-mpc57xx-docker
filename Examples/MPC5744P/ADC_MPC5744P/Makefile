@@ -1,12 +1,16 @@
 CROSS_DIR := /projects/DEVKIT-Makefile/powerpc-eabivle-4_9
 CROSS_PREFIX=powerpc-eabivle-
 
+E200MK_DIR:=/projects/DEVKIT-Makefile
+
+DIR = $(notdir $(realpath $(dir $(realpath ${lastword ${MAKEFILE_LIST}}))))
+
 C = ${CROSS_DIR}/bin/${CROSS_PREFIX}gcc
 
 SRC = $(wildcard src/*.c)
 OBJ = $(patsubst %.c,%.o,${SRC})
 
-E200MK_DIR:=$(realpath $(dir $(realpath $(lastword $(MAKEFILE_LIST)))))
+# E200MK_DIR:=$(realpath $(dir $(realpath $(lastword $(MAKEFILE_LIST)))))
 
 C_FLAGS = -DSTART_FROM_FLASH \
 -DMPC574xP \
@@ -42,9 +46,7 @@ objects: ${OBJ}
 
 %.o: %.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #7 $<'
-	@echo 'Invoking: Standard S32DS C Compiler'
-	$(C) $(C_FLAGS) -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -c -o "$@" "$<"
+	@$(C) $(C_FLAGS) -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -c -o "$@" "$<"
 
 .PHONY: clean
 clean:
@@ -53,9 +55,4 @@ clean:
 vars:
 	@echo $(C) $(C_FLAGS)
 
-
-null:
-	@echo ${MAKEFILE_LIST}
-	@echo ${lastword ${MAKEFILE_LIST}}
-	@echo $(realpath ${lastword ${MAKEFILE_LIST}})
-	@echo $(realpath $(SRC))
+include ${E200MK_DIR}/include.mk
