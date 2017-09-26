@@ -15,7 +15,7 @@ endif
 	
 # Include board configuration
 include ${E200MK_DIR}/boards.mk
-include ${E200MK_DIR}/Common.mk
+include ${E200MK_DIR}/common.mk
 
 # Determine the toolchain and ewl directories.
 ifndef VLE_TOOLCHAIN_DIR
