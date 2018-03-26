@@ -11,7 +11,7 @@ ifeq ($(MCU),MPC5744P)
 #### Start MPC5744P
 	CPU=e200z4
 
-SYMBOLS += MPC574xP
+SYMBOLS += MPC574xG
 
 # Startup Assembly
 SRC_S += ${realpath ${wildcard ${E200MK_DIR}/${MCU}/*.S}}
@@ -45,7 +45,7 @@ endif
 
 #### End MPC5744P
 else
-	$(error Unknown MCU: ${MCU})
+$(error Unknown MCU: ${MCU})
 endif
 
 ifndef C_STD
