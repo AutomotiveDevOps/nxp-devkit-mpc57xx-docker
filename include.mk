@@ -1,37 +1,29 @@
 ##########
 # DEVKIT-Makefile
-# Makefile for NXP's DEVKIT-MPC5744P & DEVKIT-MPC5748G developmend boards
+# Makefile project for NXP's DEVKIT-MPC5744P 
+# & DEVKIT-MPC5748G developmend boards
 ##########
 
 # Determine the Project's Directory
-ifndef PROJ_DIR
-	PROJ_DIR:=$(realpath $(dir $(realpath ${firstword ${MAKEFILE_LIST}})))
-endif
+PROJ_DIR?=$(realpath $(dir $(realpath $(firstword ${MAKEFILE_LIST}))))
 
 # Determine the DEVKIT-Makefile directory.
-ifndef E200MK_DIR
-	E200MK_DIR:=$(realpath $(dir $(realpath $(lastword $(MAKEFILE_LIST)))))
-endif
-	
+E200MK_DIR?=$(realpath $(dir $(realpath $(lastword ${MAKEFILE_LIST}))))
+
 # Include board configuration
 include ${E200MK_DIR}/boards.mk
 include ${E200MK_DIR}/common.mk
 
 # Determine the toolchain and ewl directories.
-ifndef VLE_TOOLCHAIN_DIR
-	VLE_TOOLCHAIN_DIR := ${E200MK_DIR}/powerpc-eabivle-4_9
-endif
-
-ifndef VLE_EWL_DIR
-	VLE_EWL_DIR:=${E200MK_DIR}/e200_ewl2
-endif
+VLE_TOOLCHAIN_DIR?=${E200MK_DIR}/.env/powerpc-eabivle-4_9
+VLE_EWL_DIR?=${E200MK_DIR}/.env/e200_ewl2
 
 # Prefix for cross compiler
 CROSS_PREFIX:=powerpc-eabivle-
 # Standard compiler utils
 CC      := ${VLE_TOOLCHAIN_DIR}/bin/${CROSS_PREFIX}gcc
 CXX     := ${VLE_TOOLCHAIN_DIR}/bin/${CROSS_PREFIX}g++
-LD     := ${VLE_TOOLCHAIN_DIR}/bin/${CROSS_PREFIX}ld
+LD      := ${VLE_TOOLCHAIN_DIR}/bin/${CROSS_PREFIX}ld
 OBJCOPY := ${VLE_TOOLCHAIN_DIR}/bin/${CROSS_PREFIX}objcopy
 OBJDUMP := ${VLE_TOOLCHAIN_DIR}/bin/${CROSS_PREFIX}objdump
 SIZE    := ${VLE_TOOLCHAIN_DIR}/bin/${CROSS_PREFIX}size
@@ -45,13 +37,8 @@ BIN:=${BIN_ROOT}.bin
 S19:=${BIN_ROOT}.S19
 
 # Complier & Linker Setup
-ifndef SYSROOT
-	SYSROOT=${VLE_EWL_DIR}
-endif
-
-ifndef SPECS
-	SPECS=ewl_c9x_noio.specs
-endif
+SYSROOT?=${VLE_EWL_DIR}
+SPECS?=ewl_c9x_noio.specs
 
 # Gather source files.
 SRC_C += ${realpath ${wildcard ${PROJ_DIR}/src/*.c}}
@@ -106,10 +93,10 @@ ${ELF}: ${OBJS}
 
 ${HEX}: ${ELF}
 	${OBJCOPY} --strip-all --output-target ihex $< "$@"
-	
+
 ${BIN}: ${ELF}
 	${OBJCOPY} --strip-all --output-target binary $< "$@"
-	
+
 ${S19}: ${ELF}
 	${OBJCOPY} --strip-all --output-target srec $< $@
 
@@ -122,8 +109,8 @@ clean:
 
 %.o: %.c
 	$(file >$@.in) $(foreach O,${C_FLAGS},$(file >>$@.in,$O))
-	$(CC) -o "$@" -c "$<" @$@.in 
-	
+	$(CC) -o "$@" -c "$<" @$@.in
+
 %.o: %.S
 	$(file >$@.in) $(foreach O,${C_FLAGS},$(file >>$@.in,$O))
 	$(CC) $(C_FLAGS) -o "$@" -c "$<"

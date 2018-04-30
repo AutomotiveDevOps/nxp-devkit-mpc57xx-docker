@@ -7,18 +7,17 @@ endif
 
 
 # Per MCU configurations
-ifeq ($(MCU),MPC5744P)
-#### Start MPC5744P
-	CPU=e200z4
+ifeq ($(MCU),MPC5748G)
+#### Start MPC5748G
+ifndef CORE
+	$(error CORE must be specified)
+endif
 
 SYMBOLS += MPC574xG
-
 # Startup Assembly
 SRC_S += ${realpath ${wildcard ${E200MK_DIR}/${MCU}/*.S}}
-
 # Linker Files.
 SRC_LD += ${realpath ${wildcard ${E200MK_DIR}/${MCU}/libs.ld}}
-
 
 # Determine if we are loading from RAM
 ifndef RAM
@@ -29,37 +28,26 @@ else
 endif
 	
 ifndef OPT_FLAGS
-	OPT_FLAGS+=message-length=0
+	OPT_FLAGS:=message-length=0
 	OPT_FLAGS+=signed-char
 	OPT_FLAGS+=function-sections
 	OPT_FLAGS+=data-sections
 endif
 
 ifndef MACH_OPTS
-	MACH_OPTS+=cpu=${CPU}
+	MACH_OPTS:=cpu=${CPU}
 	MACH_OPTS+=big
 	MACH_OPTS+=vle
 	MACH_OPTS+=regnames
 	MACH_OPTS+=hard-float
 endif
 
-#### End MPC5744P
+#### End MPC5748G
 else
 $(error Unknown MCU: ${MCU})
 endif
 
-ifndef C_STD
-	C_STD=c99
-endif
-
-ifndef OPT_LVL
-	OPT_LVL=0
-endif
-
-ifndef DEBUG_LVL
-	DEBUG_LVL=3
-endif
-
-ifndef WARNINGS
-	WARNINGS=all
-endif
+C_STD?=c99
+OPT_LVL?=0
+DEBUG_LVL?=3
+WARNINGS?=all

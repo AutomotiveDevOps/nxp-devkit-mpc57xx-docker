@@ -54,3 +54,5 @@ dkms.conf
 **/e200_ewl2/*
 **/MPC57*/*
 **/Examples/*
+
+**/.env/*
