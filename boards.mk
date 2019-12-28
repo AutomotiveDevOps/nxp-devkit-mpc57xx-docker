@@ -9,13 +9,11 @@ endif
 # Per MCU configurations
 ifeq ($(MCU),MPC5744P)
 #### Start MPC5744P
-	CPU=e200z4
-
+CPU=e200z4
 SYMBOLS += MPC574xP
 
 # Startup Assembly
 SRC_S += ${realpath ${wildcard ${E200MK_DIR}/${MCU}/*.S}}
-
 # Linker Files.
 SRC_LD += ${realpath ${wildcard ${E200MK_DIR}/${MCU}/libs.ld}}
 
@@ -48,6 +46,8 @@ else
 	$(error Unknown MCU: ${MCU})
 endif
 
+
+# Other Settings
 ifndef C_STD
 	C_STD=c99
 endif
