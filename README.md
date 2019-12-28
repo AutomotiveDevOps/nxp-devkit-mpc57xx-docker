@@ -1,9 +1,6 @@
 # DEVKIT-Makefile
 Makefiles for NXP's DEVKIT-MPC57xx boards. Modeled after the [Arduino Makefile](https://github.com/sudar/Arduino-Makefile) project.
 
-Needs the [S32DS for Power Architecture](https://www.nxp.com/support/developer-resources/run-time-software/s32-design-studio-ide/s32-design-studio-ide:S32DS?&tab=Design_Tools_Tab) to get started. I didn't want to risk waking NXP's lawyers so none of NXP's files are bundled.
-
-
 ## Usage
 
 ```Makefiles``` for all of the DEVKIT-MPC5744P examples are provided. It expects the following folder structure:
