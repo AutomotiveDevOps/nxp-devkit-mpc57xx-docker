@@ -1,0 +1,16 @@
+eclipse.preferences.version=1
+environment/project/com.freescale.s32ds.cross.gnu.e200.exe.Debug_RAM/PATH/delimiter=;
+environment/project/com.freescale.s32ds.cross.gnu.e200.exe.Debug_RAM/PATH/operation=append
+environment/project/com.freescale.s32ds.cross.gnu.e200.exe.Debug_RAM/PATH/value=
+environment/project/com.freescale.s32ds.cross.gnu.e200.exe.Debug_RAM/append=true
+environment/project/com.freescale.s32ds.cross.gnu.e200.exe.Debug_RAM/appendContributed=true
+environment/project/com.freescale.s32ds.cross.gnu.e200.exe.debug.1530957724/PATH/delimiter=;
+environment/project/com.freescale.s32ds.cross.gnu.e200.exe.debug.1530957724/PATH/operation=append
+environment/project/com.freescale.s32ds.cross.gnu.e200.exe.debug.1530957724/PATH/value=
+environment/project/com.freescale.s32ds.cross.gnu.e200.exe.debug.1530957724/append=true
+environment/project/com.freescale.s32ds.cross.gnu.e200.exe.debug.1530957724/appendContributed=true
+environment/project/com.freescale.s32ds.cross.gnu.e200.exe.release.893355277/PATH/delimiter=;
+environment/project/com.freescale.s32ds.cross.gnu.e200.exe.release.893355277/PATH/operation=append
+environment/project/com.freescale.s32ds.cross.gnu.e200.exe.release.893355277/PATH/value=
+environment/project/com.freescale.s32ds.cross.gnu.e200.exe.release.893355277/append=true
+environment/project/com.freescale.s32ds.cross.gnu.e200.exe.release.893355277/appendContributed=true

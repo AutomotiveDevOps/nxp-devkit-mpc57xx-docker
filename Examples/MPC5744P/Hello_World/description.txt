@@ -1,0 +1,7 @@
+DEVKIT-MPC5744P board: Simple LED usage Example
+*Sets the default clock source is 16 MHz IRCOSC
+*Divides IRCOSC by 10 for output frequency of 1.6 MHz
+*Configures CLKOUT signal to 1.6 MHz
+*Connects to LED
+*LED flashes at frequency of CLKOUT
+*Onboard red RGB turns on to let user know program is running, but does not flash.

@@ -31,7 +31,7 @@ CROSS_PREFIX:=powerpc-eabivle-
 # Standard compiler utils
 CC      := ${VLE_TOOLCHAIN_DIR}/bin/${CROSS_PREFIX}gcc
 CXX     := ${VLE_TOOLCHAIN_DIR}/bin/${CROSS_PREFIX}g++
-LD     := ${VLE_TOOLCHAIN_DIR}/bin/${CROSS_PREFIX}ld
+LD      := ${VLE_TOOLCHAIN_DIR}/bin/${CROSS_PREFIX}ld
 OBJCOPY := ${VLE_TOOLCHAIN_DIR}/bin/${CROSS_PREFIX}objcopy
 OBJDUMP := ${VLE_TOOLCHAIN_DIR}/bin/${CROSS_PREFIX}objdump
 SIZE    := ${VLE_TOOLCHAIN_DIR}/bin/${CROSS_PREFIX}size

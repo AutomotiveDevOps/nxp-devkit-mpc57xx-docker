@@ -1,0 +1,4 @@
+DEVKIT-MPC5744P board: XBAR integrity checker Example
+The Exmaple tests the XBAR integrity checker.
+Configures 200 MHz PLL and DMA. The XBIC is configured to inject (i.e. simulate) an error to DMA-SRAM communication.
+The DMA transfer is then activated and UART terminal reports the error detected.

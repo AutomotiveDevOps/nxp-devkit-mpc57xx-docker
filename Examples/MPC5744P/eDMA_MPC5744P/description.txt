@@ -1,0 +1,8 @@
+DEVKIT-MPC5744P board: eDMA Example
+Initializes eDMA and automatically starts transfers of "Hello Word" from source buffer to destination buffer.
+Add a watch on TCD0_SourceData and TCD0_Destination by entering the variable names in the Expressions window of Debug view.
+Click dropdown menu on TCD0_SourceData and TCD0_Destination to reveal contents of the arrays.
+TCD0_SourceData will start with "Hello World" and TCD0_Destination will start with "\0".
+Run until Red LED turns on Pause execution and check the buffers again.
+TCD0_Destination will change to "Hello World".
+The UART will print the contents of TCD0_Destination before and after eDMA transmission.
