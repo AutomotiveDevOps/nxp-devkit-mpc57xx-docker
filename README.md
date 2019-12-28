@@ -45,21 +45,19 @@ Integrated with [opensda_flasher](https://github.com/jed-frey/opensda_flasher). 
 
 3. Copy files from your S32DS installation. Once this is complete you can move the folder to another computer or uninstall S32DS. 
 
-Copy ```S32DS_Power_v1.2\powerpc-eabivle-4_9``` to this directory.
+## Windows 
+
+Copy ```S32DS_Power_v2.1/S32DS/build_tools/powerpc-eabivle-4_9``` to this directory.
 
 ![](.images/s32ds-000038.png)
 
-
-Copy ```S32DS_Power_v1.2\S32DS\e200_ewl2``` to this directory.
+Copy ```S32DS_Power_v2.1/S32DS/build_tools/e200_ewl2``` to this directory.
 
 ![](.images/s32ds-000039.png)
 
-Copy linker .ld files and startup.S file into a directory named ```MPC5744P```.
+## Linux
 
-![](.images/s32ds-000040.png)
-
-
-
+Copy or symlink the above files.
 
 ## TODO
 
