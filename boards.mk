@@ -1,13 +1,3 @@
-##
-# Development Board Configuration
-##
-ifndef MCU
-	$(error MCU must be specified)
-endif
-
-
-# Per MCU configurations
-ifeq ($(MCU),MPC5744P)
 #### Start MPC5744P
 CPU=e200z4
 SYMBOLS += MPC574xP
@@ -16,7 +6,6 @@ SYMBOLS += MPC574xP
 SRC_S += ${realpath ${wildcard ${E200MK_DIR}/${MCU}/*.S}}
 # Linker Files.
 SRC_LD += ${realpath ${wildcard ${E200MK_DIR}/${MCU}/libs.ld}}
-
 
 # Determine if we are loading from RAM
 ifndef RAM
@@ -39,27 +28,4 @@ ifndef MACH_OPTS
 	MACH_OPTS+=vle
 	MACH_OPTS+=regnames
 	MACH_OPTS+=hard-float
-endif
-
-#### End MPC5744P
-else
-	$(error Unknown MCU: ${MCU})
-endif
-
-
-# Other Settings
-ifndef C_STD
-	C_STD=c99
-endif
-
-ifndef OPT_LVL
-	OPT_LVL=0
-endif
-
-ifndef DEBUG_LVL
-	DEBUG_LVL=3
-endif
-
-ifndef WARNINGS
-	WARNINGS=all
 endif

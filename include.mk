@@ -14,7 +14,7 @@ ifndef E200MK_DIR
 endif
 	
 # Include board configuration
-include ${E200MK_DIR}/boards.mk
+include ${E200MK_DIR}/${MCU}.mk
 include ${E200MK_DIR}/common.mk
 
 # Determine the toolchain and ewl directories.
@@ -42,7 +42,7 @@ BIN_ROOT:=${notdir ${PROJ_DIR}}
 ELF:=${BIN_ROOT}.elf
 HEX:=${BIN_ROOT}.hex
 BIN:=${BIN_ROOT}.bin
-S19:=${BIN_ROOT}.S19
+S19:=${BIN_ROOT}.s19
 
 # Complier & Linker Setup
 ifndef SYSROOT
@@ -119,11 +119,12 @@ clean:
 	-${RM} ${HEX}
 	-${RM} ${BIN}
 	-${RM} ${S19}
+	-${RM} ${OBJS}
 
 %.o: %.c
-	$(file >$@.in) $(foreach O,${C_FLAGS},$(file >>$@.in,$O))
-	$(CC) -o "$@" -c "$<" @$@.in 
+	$(file >$@.args) $(foreach O,${C_FLAGS},$(file >>$@.args,$O))
+	$(CC) -o "$@" -c "$<" @$@.args
 	
 %.o: %.S
-	$(file >$@.in) $(foreach O,${C_FLAGS},$(file >>$@.in,$O))
-	$(CC) $(C_FLAGS) -o "$@" -c "$<"
+	$(file >$@.args) $(foreach O,${C_FLAGS},$(file >>$@.args,$O))
+	$(CC) -o "$@" -c "$<" @$@.args
