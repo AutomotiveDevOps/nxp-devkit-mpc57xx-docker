@@ -21,10 +21,13 @@ include ${E200MK_DIR}/common.mk
 ifndef VLE_TOOLCHAIN_DIR
 	VLE_TOOLCHAIN_DIR := ${E200MK_DIR}/powerpc-eabivle-4_9
 endif
+VLE_TOOLCHAIN_DIR:=$(realpath ${VLE_TOOLCHAIN_DIR})
 
 ifndef VLE_EWL_DIR
 	VLE_EWL_DIR:=${E200MK_DIR}/e200_ewl2
 endif
+VLE_EWL_DIR:=$(realpath ${VLE_EWL_DIR})
+
 
 # Prefix for cross compiler
 CROSS_PREFIX:=powerpc-eabivle-
@@ -67,6 +70,7 @@ INCLUDE += ${PROJ_DIR}/include
 INCLUDE += ${VLE_EWL_DIR}/EWL_C/include
 INCLUDE += ${VLE_EWL_DIR}/EWL_C/include/pa
 
+C_STD=c99
 # C Flags
 C_FLAGS += -std=${C_STD}
 C_FLAGS += $(foreach d, $(SYMBOLS),-D$d)
@@ -120,11 +124,12 @@ clean:
 	-${RM} ${BIN}
 	-${RM} ${S19}
 	-${RM} ${OBJS}
+	-${RM} ${BIN_ROOT}.map
 
 %.o: %.c
 	$(file >$@.args) $(foreach O,${C_FLAGS},$(file >>$@.args,$O))
-	$(CC) -o "$@" -c "$<" @$@.args
+	$(CC) -MMD -MP -MF"${@:%.o=%.d}" -MT"${@}" -o "$@" -c "$<" @$@.args
 	
 %.o: %.S
 	$(file >$@.args) $(foreach O,${C_FLAGS},$(file >>$@.args,$O))
-	$(CC) -o "$@" -c "$<" @$@.args
+	$(CC) -MMD -MP -MF"${@:%.o=%.d}" -MT"${@}" -o "$@" -c "$<" @$@.args
