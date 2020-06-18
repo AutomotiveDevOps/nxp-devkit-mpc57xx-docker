@@ -1,9 +1,14 @@
 # Containerized builds for NXP's DEVKIT-MPC5744 examples.
 
-Examples copied directly from ```~/NXP/S32DS_Power_v2.1/eclipse/plugins/com.nxp.s32ds.e200.examples_1.0.0.201911111358/Examples/MPC5744P``` with no additional modifications to the source, includes or Project_Settings.
+Examples copied directly from 
 
+    ~/NXP/S32DS_Power_v2.1/eclipse/plugins/com.nxp.s32ds.e200.examples_1.0.0.201911111358/Examples/MPC5744P
+    
+with no additional modifications to the source, includes or Project_Settings.
 
 ## Usage
+
+[Requires [Docker image created from ```AutomotiveDevOps/powerpc-eabivle-gcc-dockerfiles```](https://github.com/AutomotiveDevOps/powerpc-eabivle-gcc-dockerfiles)]
 
 ### Cloning & Checkout
 
