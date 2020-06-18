@@ -1,7 +1,0 @@
-DEVKIT-MPC5744P board: Simple LED/PLL/Interrupts usage Example
-*Configures PLL to 160 MHz and LINFlexD to LIN master mode
-*Transmit "Hello" through LIN in master mode
-*Requests to slave to send "World" back to master
-*Prints the results in terminal to be used alongside LINFlexD_LIN_Slave_MPC5744P so two boards are needed
-*One should be loaded with this program and the other should be loaded with the slave program
-*Flash the program then reset so both boards can run simultaneously.
