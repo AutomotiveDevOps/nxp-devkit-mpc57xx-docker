@@ -1,4 +1,0 @@
-DEVKIT-MPC5744P board: LINFlex UART Example
-The Example uses LINFlexD_1 to communicate to computer terminal like TeraTerm.
-Connects USB to PC.
-Sends a string to the computer terminal.

@@ -1,8 +1,0 @@
-DEVKIT-MPC5744P board: FlexPWM and SGEN Example
-The Example shows usage of FlexPWM and Sine Wave generator (SGEN) modules.
-The setting is selected in the way to have a PWM output signal synchronized with SWG output signal.
-This is necessary for resolver usage in motor control applications.
-
-See attached Excel sheet for calculation of parameters used here (AUX0_clk_DIV0, AUX0_clk_DIV1, SGEN_IOFREQ, PWM_PRESCALER, PWM_MODULO).
-
-This example is set for 2.44140625 kHz SGEN/PWM frequency.

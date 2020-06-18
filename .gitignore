@@ -1,7 +1,11 @@
+# Ignore build artifacts
+**/artifacts/*
+
 # Prerequisites
 *.d
 
 # Object files
+*.args
 *.o
 *.ko
 *.obj
