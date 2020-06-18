@@ -1,0 +1,4 @@
+DEVKIT-MPC5744P board: FCCU Example
+The Example simulates faults with the FCCU. Press SW1 to simulate the fault.
+When FAULT status is detected, the MCU system moves into SAFE mode and flashes the red LED.
+Press SW2 to clear the fault. Red LED will turn back off.

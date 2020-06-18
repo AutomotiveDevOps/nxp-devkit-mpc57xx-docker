@@ -1,0 +1,17 @@
+DEVKIT-MPC5744P board: eTimer Example
+The example gives possible implementation of input signal period/freq measurement.
+eTimer channel capture 1 and 2 features are used. CAPT1/CAPT2 capture counter value on rising/falling edge of input signal.
+The FIFO is set to 2 entries and ICF2 is monitored.
+Free-running mode is used here.
+
+eTimer channel 0-1 are cascaded to achieve 1sec/1Hz measuring with 32bit counter.
+
+ EVB connection:
+   J5_3  - A[1]   eTimer0 channel1 input signal
+   J1_16 - B[6]   CLKOUT signal provided by program. You can connect
+   CLKOUT as input to eTimer0 channel 1 or you can use any external
+   signal.
+
+Connect pulse signal (J1_16) to eTimer0 channel 1 (J5_3)
+See results on PC terminal such as TeraTerm (19200, 8N1, None).
+Change freq/duty of input signal.

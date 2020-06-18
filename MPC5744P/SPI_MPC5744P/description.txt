@@ -1,0 +1,8 @@
+DEVKIT-MPC5744P board: SPI Example
+The example configures PLL to 160 MHz, DSPI_1 to master, DSPI_2 to slave.
+Slave sends 0x1234 to master.
+Master sends 0x5678 to Slave. Slave receive buffer (RecDataSlave) gets 0x5678 and Master receive buffer (RecDataMaster) gets 0x1234.
+Put a watch on RecDataMaster and RecDataSlave.
+They will start at 0. Run the program and then pause.
+RecDataSlave will be 0x5678 and RecDataMaster will be 0x1234.
+The UART terminal will print the contents of the master and slave buffers before and after SPI transfer.

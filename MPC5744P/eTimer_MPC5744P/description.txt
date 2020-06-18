@@ -1,0 +1,7 @@
+DEVKIT-MPC5744P board: Timer usage Example
+*Application performs basic initialization, setup PLL1 to maximum allowed freq. PLL1 is system frequency
+*PLL0 is initialized to 50MHz
+*Initializes peripherals clock (MOTC_CLK is set to 5MHz)
+*Initializes eTimer to count mode
+*Initializes interrupts, blinking one LED by eTimer interrupt.
+

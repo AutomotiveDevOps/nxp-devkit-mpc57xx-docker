@@ -1,0 +1,6 @@
+DEVKIT-MPC5744P board: LINFlex Example
+The Example configures MPC5744P PLL to 160 MHz and LINFlexD to LIN slave mode.
+Receives "Hello" in slave mode. Then sends "World" back to master.
+To be used alongside LINFlexD_LIN_Master_MPC5744P so two boards are needed.
+One should be loaded with this program and the other should be loaded with the master program.
+Flash the program then reset so both boards can run simultaneously.

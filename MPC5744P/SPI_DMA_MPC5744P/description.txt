@@ -1,0 +1,15 @@
+DEVKIT-MPC5744P board: SPI DMA Example
+The example configures PLL to 160 MHz. DMAMux sets eDMA channels to DSPI as source.
+Configure DSPI_1 to master and DSPI_2 to slave.
+Transfers a buffer of 256 bytes through SPI.
+DMA transfers the buffer to DSPI_1. DSPI_1 sends to DSPI_2.
+DMA transfers the buffer from DSPI_2 to destination buffer.
+Put a watch on TransmitBuffer and ReceiveBuffer. ReceiveBuffer will start with all '\0's.
+After running, ReceiveBuffer's contents will be 0-255,
+same as TransmitBuffer after truncation of TransmitBuffer from int-size to byte-size.
+
+NOTE: There is a problem with the S32DS variable and memory watch windows.
+ReceiveBuffer will NOT update if you check ReceiveBuffer's contents before running program.
+If you check ReceiveBuffer before SPI transfers, it will be all '\0's and stay all '\0s' even after transfers.
+Check ReceiveBuffer only after all transfers are done.
+Connect to PC terminal. UART will print the buffer contents before and after SPI transfer.

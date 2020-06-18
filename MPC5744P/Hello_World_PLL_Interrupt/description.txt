@@ -1,0 +1,6 @@
+DEVKIT-MPC5744P board: Simple LED/PLL/Interrupts usage Example
+*Configures PLL to 160 MHz, three PIT channels, and one SW interrupt
+*Each PIT is loaded with different period
+*SW interrupt is set after every four iterations of PIT0 interrupt
+*PITs and SW interrupt each connected to an LED
+*LEDs flash at frequency of their corresponding interrupts.
