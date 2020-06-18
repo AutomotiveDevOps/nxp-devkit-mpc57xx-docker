@@ -41,3 +41,9 @@ sh build_all.sh
 There are only 3 main files for the docker builds: ```Dockerfile```, ```build-5744p.sh```, ```makefiles/devkit_5744p.mk```.
 
 ```copy_build_files.py``` copies those 3 files to each example folder.
+
+
+
+## Issues
+
+https://github.com/AutomotiveDevOps/nxp-devkit-mpc57xx-docker/issues
